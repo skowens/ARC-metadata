@@ -20,10 +20,10 @@
     <!--
    		
     An instance is 
-        (1) One or more of <object>, <event>, <agent>, <rights> all wrapped within a <premis> container; or
-        (2) any one of  <object>, <event>, <agent>, <rights>  by itself. 
+        (1) One or more of <object>, <agent>, <rights> all wrapped within a <premis> container; or
+        (2) any one of  <object>, <agent>, <rights>  by itself. 
 
-    Thus the root element is one of the following:  <premis>, <object>, <event>, <agent>, <rights> 
+    Thus the root element is one of the following:  <premis>, <object>, <agent>, <rights> 
 
     ********************************************************************************************
     *                                                                                          *
@@ -33,7 +33,6 @@
     -->
     <xs:element name="arc" type="arcComplexType"/>
     <xs:element name="object" type="objectComplexType"/>
-    <xs:element name="event" type="eventComplexType"/>
     <xs:element name="agent" type="agentComplexType"/>
     <xs:element name="rights" type="rightsComplexType"/>
 
@@ -49,7 +48,6 @@
     <xs:complexType name="arcComplexType">
         <xs:sequence>
             <xs:element ref="object" maxOccurs="unbounded"/>
-            <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agent" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="rights" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -66,7 +64,7 @@
     <!--
 
     ***************  
-    The "types":  'file', 'representation', 'bitstream', and intellectualEntity'.  
+    The "types":  'file', 'representation', and intellectualEntity'.  
 
     These are the values for the xsi:type attribute in an instance. 
     For an object of type file: <object xsi:type="file"> will mean that the complexType 
@@ -112,7 +110,6 @@
                     <xs:element ref="storage" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="signatureInformation" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="linkingEventIdentifier" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0"
                         maxOccurs="unbounded"/>
                 </xs:sequence>
@@ -135,7 +132,6 @@
                     <xs:element ref="originalName" minOccurs="0"/>
                     <xs:element ref="storage" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="linkingEventIdentifier" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0"
                         maxOccurs="unbounded"/>
                 </xs:sequence>
@@ -166,7 +162,6 @@
                     <xs:element ref="environmentExtension" minOccurs="0" maxOccurs="unbounded"/>
                     <!--   -->
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="linkingEventIdentifier" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0"
                         maxOccurs="unbounded"/>
                 </xs:sequence>
@@ -178,25 +173,7 @@
     
     <!--
     ************************************************************************************************************
-    ************************************************************************************************************
-    ************************************eventComplexType
-    -->
-    <xs:complexType name="eventComplexType">
-        <xs:sequence>
-            <xs:element ref="eventIdentifier"/>
-            <xs:element ref="eventType"/>
-            <xs:element ref="eventDateTime"/>
-            <xs:element ref="eventDetailInformation" minOccurs="0" maxOccurs="unbounded"/>
-            <!--   -->
-            <xs:element ref="eventOutcomeInformation" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-        <xs:attribute name="xmlID" type="xs:ID"/>
-        <xs:attribute name="version" type="version3"/>
-    </xs:complexType>
-    
-    <!--  	                  
+    ************************************************************************************************************ 	                  
     **************************  agentComplexType
     -->
     <xs:complexType name="agentComplexType">
@@ -208,7 +185,6 @@
             <!--   -->
             <xs:element ref="agentNote" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agentExtension" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="linkingEventIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingEnvironmentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
@@ -376,59 +352,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!--
-       ****eventDetailInformationComplexType
-    -->
-    <xs:complexType name="eventDetailInformationComplexType">
-        <xs:sequence>
-            <xs:element ref="eventDetail" minOccurs="0"/>
-            <xs:element ref="eventDetailExtension" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- 
-       ****eventIdentifierComplexType
-     -->
-    <xs:complexType name="eventIdentifierComplexType">
-        <xs:sequence>
-            <xs:element ref="eventIdentifierType"/>
-            <xs:element ref="eventIdentifierValue"/>
-        </xs:sequence>
-        <xs:attribute name="simpleLink" type="xs:anyURI"/>
-    </xs:complexType>
-
-    <!--
-       ****eventOutcomeDetailComplexType
-                                   See comment for "creatingApplicationComplexType"
-    -->
-    <xs:complexType name="eventOutcomeDetailComplexType">
-        <xs:choice>
-            <!--   -->
-            <xs:sequence>
-                <xs:element ref="eventOutcomeDetailNote"/>
-                <xs:element ref="eventOutcomeDetailExtension" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
-            <!--   -->
-            <xs:element ref="eventOutcomeDetailExtension" maxOccurs="unbounded"/>
-            <!--   -->
-        </xs:choice>
-    </xs:complexType>
-
-    <!--
-
-   ****eventOutcomeInformationComplexType
-                                   See comment for "creatingApplicationComplexType"
-    -->
-    <xs:complexType name="eventOutcomeInformationComplexType">
-        <xs:choice>
-            <xs:sequence>
-                <xs:element ref="eventOutcome"/>
-                <xs:element ref="eventOutcomeDetail" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
-            <xs:element ref="eventOutcomeDetail" maxOccurs="unbounded"/>
-        </xs:choice>
-    </xs:complexType>
-
     <!--    
     *******fixityComplexType
      -->
@@ -552,19 +475,6 @@
             <xs:element ref="linkingEnvironmentIdentifierValue"/>
             <xs:element ref="linkingEnvironmentRole" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="LinkEventXmlID" type="xs:IDREF"/>
-        <xs:attribute name="simpleLink" type="xs:anyURI"/>
-    </xs:complexType>
-
-    <!--   
-    ****************"linkingEventIdentifierComplexType
-     -->
-    <xs:complexType name="linkingEventIdentifierComplexType">
-        <xs:sequence>
-            <xs:element ref="linkingEventIdentifierType"/>
-            <xs:element ref="linkingEventIdentifierValue"/>
-        </xs:sequence>
-        <xs:attribute name="LinkEventXmlID" type="xs:IDREF"/>
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
 
@@ -672,19 +582,6 @@
     </xs:complexType>
 
     <!--
-    ****************relatedEventIdentifierComplexType
-    -->
-    <xs:complexType name="relatedEventIdentifierComplexType">
-        <xs:sequence>
-            <xs:element ref="relatedEventIdentifierType"/>
-            <xs:element ref="relatedEventIdentifierValue"/>
-            <xs:element ref="relatedEventSequence" minOccurs="0"/>
-        </xs:sequence>
-        <xs:attribute name="RelEventXmlID" type="xs:IDREF"/>
-        <xs:attribute name="simpleLink" type="xs:anyURI"/>
-    </xs:complexType>
-
-    <!--
     ****************relatedObjectIdentifierComplexType
     -->
     <xs:complexType name="relatedObjectIdentifierComplexType">
@@ -705,7 +602,6 @@
             <xs:element ref="relationshipType"/>
             <xs:element ref="relationshipSubType"/>
             <xs:element ref="relatedObjectIdentifier" maxOccurs="unbounded"/>
-            <xs:element ref="relatedEventIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="relatedEnvironmentPurpose" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="relatedEnvironmentCharacteristic" minOccurs="0"/>
         </xs:sequence>
@@ -857,9 +753,6 @@
     <xs:element name="environmentRegistryKey" type="xs:string"/>
     <xs:element name="environmentRegistryName" type="xs:string"/>
     <xs:element name="environmentVersion" type="xs:string"/>
-    <xs:element name="eventDetail" type="xs:string"/>
-    <xs:element name="eventIdentifierValue" type="xs:string"/>
-    <xs:element name="eventOutcomeDetailNote" type="xs:string"/>
     <xs:element name="formatNote" type="xs:string"/>
     <xs:element name="formatVersion" type="xs:string"/>
     <xs:element name="hwOtherInformation" type="xs:string"/>
@@ -871,7 +764,6 @@
     <xs:element name="linkingAgentIdentifierValue" type="xs:string"/>
     <xs:element name="linkingEnvironmentIdentifierType" type="xs:string"/>
     <xs:element name="linkingEnvironmentIdentifierValue" type="xs:string"/>
-    <xs:element name="linkingEventIdentifierValue" type="xs:string"/>
     <xs:element name="linkingObjectIdentifierValue" type="xs:string"/>
     <xs:element name="linkingRightsStatementIdentifierValue" type="xs:string"/>
     <xs:element name="messageDigest" type="xs:string"/>
@@ -879,7 +771,6 @@
     <xs:element name="otherRightsDocumentationIdentifierValue" type="xs:string"/>
     <xs:element name="otherRightsNote" type="xs:string"/>
     <xs:element name="preservationLevelRationale" type="xs:string"/>
-    <xs:element name="relatedEventIdentifierValue" type="xs:string"/>
     <xs:element name="relatedObjectIdentifierValue" type="xs:string"/>
     <xs:element name="rightsGrantedNote" type="xs:string"/>
     <xs:element name="rightsStatementIdentifierValue" type="xs:string"/>
@@ -906,9 +797,6 @@
     <xs:element name="environmentName" type="stringPlusAuthority"/>
     <xs:element name="environmentRegistryRole" type="stringPlusAuthority"/>
     <xs:element name="environmentPurpose" type="stringPlusAuthority"/>
-    <xs:element name="eventIdentifierType" type="stringPlusAuthority"/>
-    <xs:element name="eventOutcome" type="stringPlusAuthority"/>
-    <xs:element name="eventType" type="stringPlusAuthority"/>
     <xs:element name="formatName" type="stringPlusAuthority"/>
     <xs:element name="formatRegistryName" type="stringPlusAuthority"/>
     <xs:element name="formatRegistryKey" type="stringPlusAuthority"/>
@@ -922,7 +810,6 @@
     <xs:element name="licenseIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="linkingAgentIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="linkingAgentRole" type="stringPlusAuthority"/>
-    <xs:element name="linkingEventIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="linkingEnvironmentRole" type="stringPlusAuthority"/>
     <xs:element name="linkingObjectIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="linkingObjectRole" type="stringPlusAuthority"/>
@@ -936,7 +823,6 @@
     <xs:element name="preservationLevelType" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelValue" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelRole" type="stringPlusAuthority"/>
-    <xs:element name="relatedEventIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="relatedEnvironmentPurpose" type="stringPlusAuthority"/>
     <xs:element name="relatedEnvironmentCharacteristic" type="stringPlusAuthority"/>
     <xs:element name="relatedObjectIdentifierType" type="stringPlusAuthority"/>
@@ -975,10 +861,6 @@
     <xs:element name="environmentFunction" type="environmentFunctionComplexType"/>
     <xs:element name="environmentDesignation" type="environmentDesignationComplexType"/>
     <xs:element name="environmentRegistry" type="environmentRegistryComplexType"/>
-    <xs:element name="eventDetailInformation" type="eventDetailInformationComplexType"/>
-    <xs:element name="eventIdentifier" type="eventIdentifierComplexType"/>
-    <xs:element name="eventOutcomeDetail" type="eventOutcomeDetailComplexType"/>
-    <xs:element name="eventOutcomeInformation" type="eventOutcomeInformationComplexType"/>
     <xs:element name="fixity" type="fixityComplexType"/>
     <xs:element name="format" type="formatComplexType"/>
     <xs:element name="formatDesignation" type="formatDesignationComplexType"/>
@@ -989,7 +871,6 @@
     <xs:element name="licenseInformation" type="licenseInformationComplexType"/>
     <xs:element name="linkingAgentIdentifier" type="linkingAgentIdentifierComplexType"/>
     <xs:element name="linkingEnvironmentIdentifier" type="linkingEnvironmentIdentifierComplexType"/>
-    <xs:element name="linkingEventIdentifier" type="linkingEventIdentifierComplexType"/>
     <xs:element name="linkingObjectIdentifier" type="linkingObjectIdentifierComplexType"/>
     <xs:element name="linkingRightsStatementIdentifier"
         type="linkingRightsStatementIdentifierComplexType"/>
@@ -1000,7 +881,6 @@
         type="otherRightsDocumentationIdentifierComplexType"/>
     <xs:element name="otherRightsInformation" type="otherRightsInformationComplexType"/>
     <xs:element name="preservationLevel" type="preservationLevelComplexType"/>
-    <xs:element name="relatedEventIdentifier" type="relatedEventIdentifierComplexType"/>
     <xs:element name="relatedObjectIdentifier" type="relatedObjectIdentifierComplexType"/>
     <xs:element name="relationship" type="relationshipComplexType"/>
     <xs:element name="rightsGranted" type="rightsGrantedComplexType"/>
@@ -1014,7 +894,6 @@
     <!--  
     ****** other xs  type  element declarations
  	 -->
-    <xs:element name="relatedEventSequence" type="xs:nonNegativeInteger"/>
     <xs:element name="relatedObjectSequence" type="xs:nonNegativeInteger"/>
     <xs:element name="size" type="xs:long"/>
 
@@ -1025,7 +904,6 @@
     <xs:element name="endDate" type="edtfSimpleType"/>
     <xs:element name="copyrightApplicableDates" type="startAndEndDateComplexType"/>
     <xs:element name="copyrightStatusDeterminationDate" type="edtfSimpleType"/>
-    <xs:element name="eventDateTime" type="xs:string"/>
     <xs:element name="licenseApplicableDates" type="startAndEndDateComplexType"/>
     <xs:element name="preservationLevelDateAssigned" type="edtfSimpleType"/>
     <xs:element name="startDate" type="edtfSimpleType"/>
@@ -1041,8 +919,6 @@
     <xs:element name="agentExtension" type="extensionComplexType"/>
     <xs:element name="creatingApplicationExtension" type="extensionComplexType"/>
     <xs:element name="environmentExtension" type="extensionComplexType"/>
-    <xs:element name="eventDetailExtension" type="extensionComplexType"/>
-    <xs:element name="eventOutcomeDetailExtension" type="extensionComplexType"/>
     <xs:element name="keyInformation" type="extensionComplexType"/>
     <xs:element name="objectCharacteristicsExtension" type="extensionComplexType"/>
     <xs:element name="rightsExtension" type="extensionComplexType"/>
