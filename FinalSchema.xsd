@@ -211,13 +211,13 @@
             <xs:element ref="agentName" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agentType" minOccurs="0"/>
             <xs:element ref="agentVersion" minOccurs="0"/>
+            <xs:element ref="agentOrganization" minOccurs="0"/>
             <!--   -->
             <xs:element ref="agentNote" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agentExtension" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingEnvironmentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded"></xs:element>
-            <xs:element ref="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded" />
             <!--   -->
         </xs:sequence>
         <xs:attribute name="xmlID" type="xs:ID"/>
@@ -264,6 +264,18 @@
             <xs:element ref="agentIdentifierValue"/>
         </xs:sequence>
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
+    </xs:complexType>
+    
+    <!--
+    ******* agentOrganizationComplexType
+    -->
+    <xs:complexType name="agentOrganizationComplexType">
+        <xs:sequence>
+            <xs:element ref="linkingAgentIdentifier"/>
+            <xs:element ref="startDate"/>
+            <xs:element ref="endDate" minOccurs="0"/>
+            <xs:element ref="title" minOccurs="0"/>
+        </xs:sequence>
     </xs:complexType>
 
     <!--
@@ -905,6 +917,7 @@
     <xs:element name="streetAddress" type="xs:string"/>
     <xs:element name="swVersion" type="xs:string"/>
     <xs:element name="swOtherInformation" type="xs:string"/>
+    <xs:element name="title" type="xs:string"/>
 
     <!--
     ****** stringPlusAuthority type element declarations
@@ -981,6 +994,7 @@
  	 -->
     <xs:element name="address" type="addressComplexType"/>
     <xs:element name="agentIdentifier" type="agentIdentifierComplexType"/>
+    <xs:element name="agentOrganization" type="agentOrganizationComplexType"/>
     <xs:element name="buildingAward" type="buildingAwardComplexType"/>
     <xs:element name="buildingCharacteristics" type="buildingCharacteristicsComplexType"/>
     <xs:element name="buildingLocation" type="buildingLocationComplexType"/>
