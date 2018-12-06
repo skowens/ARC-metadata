@@ -64,7 +64,7 @@
     <!--
 
     ***************  
-    The "types":  'file', 'representation', and intellectualEntity'.  
+    The "types":  'file', 'representation', and 'software'.  
 
     These are the values for the xsi:type attribute in an instance. 
     For an object of type file: <object xsi:type="file"> will mean that the complexType 
@@ -142,9 +142,9 @@
     </xs:complexType>
 
     <!--
-    *********** intellectualEntity
+    *********** software
     -->
-    <xs:complexType name="intellectualEntity">
+    <xs:complexType name="software">
         <xs:complexContent>
             <xs:extension base="objectComplexType">
                 <xs:sequence>
@@ -187,6 +187,7 @@
             <xs:element ref="agentExtension" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingEnvironmentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded"></xs:element>
             <xs:element ref="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <!--   -->
         </xs:sequence>
