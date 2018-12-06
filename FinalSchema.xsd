@@ -132,7 +132,7 @@
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
                     <xs:element ref="preservationLevel" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="significantProperties" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="objectCharacteristics" maxOccurs="unbounded"/>
+                    <xs:element ref="fileCharacteristics" maxOccurs="unbounded"/>
                     <xs:element ref="originalName" minOccurs="0"/>
                     <xs:element ref="storage" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="signatureInformation" minOccurs="0" maxOccurs="unbounded"/>
@@ -532,9 +532,9 @@
     </xs:complexType>
 
     <!--   
-    ****************objectCharacteristicsComplexType
+    ****************fileCharacteristicsComplexType
      -->
-    <xs:complexType name="objectCharacteristicsComplexType">
+    <xs:complexType name="fileCharacteristicsComplexType">
         <xs:sequence>
             <xs:element ref="compositionLevel" minOccurs="0"/>
             <xs:element ref="fixity" minOccurs="0" maxOccurs="unbounded"/>
@@ -542,7 +542,7 @@
             <xs:element ref="format" maxOccurs="unbounded"/>
             <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="inhibitors" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="objectCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -902,7 +902,7 @@
     <xs:element name="linkingObjectIdentifier" type="linkingObjectIdentifierComplexType"/>
     <xs:element name="linkingRightsStatementIdentifier"
         type="linkingRightsStatementIdentifierComplexType"/>
-    <xs:element name="objectCharacteristics" type="objectCharacteristicsComplexType"/>
+    <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="objectIdentifier" type="objectIdentifierComplexType"/>
     <xs:element name="originalName" type="originalNameComplexType"/>
     <xs:element name="otherRightsDocumentationIdentifier"
@@ -948,7 +948,7 @@
     <xs:element name="creatingApplicationExtension" type="extensionComplexType"/>
     <xs:element name="environmentExtension" type="extensionComplexType"/>
     <xs:element name="keyInformation" type="extensionComplexType"/>
-    <xs:element name="objectCharacteristicsExtension" type="extensionComplexType"/>
+    <xs:element name="fileCharacteristicsExtension" type="extensionComplexType"/>
     <xs:element name="rightsExtension" type="extensionComplexType"/>
     <xs:element name="signatureInformationExtension" type="extensionComplexType"/>
     <xs:element name="significantPropertiesExtension" type="extensionComplexType"/>
