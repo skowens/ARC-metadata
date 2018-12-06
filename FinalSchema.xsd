@@ -20,10 +20,10 @@
     <!--
    		
     An instance is 
-        (1) One or more of <object>, <agent>, <rights> all wrapped within a <premis> container; or
+        (1) One or more of <object>, <agent>, <rights> all wrapped within a <arc> container; or
         (2) any one of  <object>, <agent>, <rights>  by itself. 
 
-    Thus the root element is one of the following:  <premis>, <object>, <agent>, <rights> 
+    Thus the root element is one of the following:  <arc>, <object>, <agent>, <rights> 
 
     ********************************************************************************************
     *                                                                                          *
@@ -43,7 +43,7 @@
     *                                                                                               *
     *************************************************************************************************
 
-    ************************************ premisComplexType 
+    ************************************arcComplexType 
     -->
     <xs:complexType name="arcComplexType">
         <xs:sequence>
@@ -266,6 +266,17 @@
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
 
+    <!--
+    ******* buildingAwardComplexType
+    -->
+    <xs:complexType name="buildingAwardComplexType">
+        <xs:sequence>
+            <xs:element ref="awardName"/>
+            <xs:element ref="awardYear"/>
+        </xs:sequence>
+        <xs:attribute name="simpleLink" type="xs:anyURI"/>
+    </xs:complexType>
+
     <!--   
     ****************buildingCharacteristicsComplexType
      -->
@@ -273,12 +284,14 @@
         <xs:sequence>
             <xs:element ref="buildingLocation"/>
             <xs:element ref="buildingFunction"/>
+            <xs:element ref="size" minOccurs="0"/>
+            <xs:element ref="buildingAward" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="buildingCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- 
-    ****************buildingLocation
+    ****************buildingLocationComplexType
     -->
     <xs:complexType name="buildingLocationComplexType">
         <xs:choice>
@@ -845,6 +858,8 @@
     <xs:element name="agentIdentifierValue" type="xs:string"/>
     <xs:element name="agentNote" type="xs:string"/>
     <xs:element name="agentVersion" type="xs:string"/>
+    <xs:element name="awardName" type="xs:string"/>
+    <xs:element name="awardYear" type="xs:string"/>
     <xs:element name="city" type="xs:string"/>
     <xs:element name="contentLocationValue" type="xs:string"/>
     <xs:element name="copyrightDocumentationIdentifierValue" type="xs:string"/>
@@ -932,7 +947,7 @@
     <xs:element name="otherRightsBasis" type="stringPlusAuthority"/>
     <xs:element name="otherRightsDocumentationRole" type="stringPlusAuthority"/>
     <xs:element name="otherRightsDocumentationIdentifierType" type="stringPlusAuthority"/>
-    <xs:element name="projectType" type="xs:stringPlusAuthority"/>
+    <xs:element name="projectType" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelType" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelValue" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelRole" type="stringPlusAuthority"/>
@@ -966,6 +981,7 @@
  	 -->
     <xs:element name="address" type="addressComplexType"/>
     <xs:element name="agentIdentifier" type="agentIdentifierComplexType"/>
+    <xs:element name="buildingAward" type="buildingAwardComplexType"/>
     <xs:element name="buildingCharacteristics" type="buildingCharacteristicsComplexType"/>
     <xs:element name="buildingLocation" type="buildingLocationComplexType"/>
     <xs:element name="contentLocation" type="contentLocationComplexType"/>
@@ -1027,8 +1043,6 @@
     <xs:element name="preservationLevelDateAssigned" type="edtfSimpleType"/>
     <xs:element name="startDate" type="edtfSimpleType"/>
     <xs:element name="otherRightsApplicableDates" type="startAndEndDateComplexType"/>
-    <xs:element name="statuteApplicableDates" type="startAndEndDateComplexType"/>
-    <xs:element name="statuteInformationDeterminationDate" type="edtfSimpleType"/>
     <xs:element name="termOfGrant" type="startAndEndDateComplexType"/>
     <xs:element name="termOfRestriction" type="startAndEndDateComplexType"/>
 
