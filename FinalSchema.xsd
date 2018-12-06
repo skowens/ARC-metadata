@@ -77,6 +77,7 @@
             <xs:extension base="objectComplexType">
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
+                    <xs:element ref="buildingCharacteristics" maxOccurs="unbounded"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -242,8 +243,18 @@
     *                                                                                          *
     *********************************************************************************************
     *********************************************************************************************
+    ********address  
+    -->
+        <xs:complexType name="addressComplexType">
+            <xs:sequence>
+                <xs:element ref="streetAddress"/>
+                <xs:element ref="city"/>
+                <xs:element ref="state"/>
+                <xs:element ref="country"/>
+            </xs:sequence>
+        </xs:complexType>
 
-
+    <!--
     ******* agentIdentifierComplexType
     -->
     <xs:complexType name="agentIdentifierComplexType">
@@ -259,14 +270,31 @@
      -->
     <xs:complexType name="buildingCharacteristicsComplexType">
         <xs:sequence>
-            
+            <xs:element ref="buildingLocation"/>
+            <xs:element ref="buildingFunction"/>
             <xs:element ref="buildingCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
-
-
-
+    <!-- 
+    ****************buildingLocation
+    -->
+    <xs:complexType name="buildingLocationComplexType">
+        <xs:choice>
+            <xs:sequence>
+                <xs:element ref="coordinates"/>
+                <xs:element ref="address" minOccurs="0"/>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element ref="address"/>
+             </xs:sequence>
+        </xs:choice>
+        
+        <!--
+        See notes for creatingApplicationComplexType
+        -->
+    </xs:complexType>
+    
     <!--
     ****************compositionLevelComplexType
     -->
@@ -293,6 +321,16 @@
             <xs:element ref="contentLocationValue"/>
         </xs:sequence>
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
+    </xs:complexType>
+    
+    <!--
+    ******** coordinatesComplexType  
+    -->
+    <xs:complexType name="coordinatesComplexType">
+        <xs:sequence>
+            <xs:element ref="latitude"/>
+            <xs:element ref="longitude"/>
+        </xs:sequence>
     </xs:complexType>
 
     <!--
@@ -784,9 +822,11 @@
     <xs:element name="agentIdentifierValue" type="xs:string"/>
     <xs:element name="agentNote" type="xs:string"/>
     <xs:element name="agentVersion" type="xs:string"/>
+    <xs:element name="city" type="xs:string"/>
     <xs:element name="contentLocationValue" type="xs:string"/>
     <xs:element name="copyrightDocumentationIdentifierValue" type="xs:string"/>
     <xs:element name="copyrightNote" type="xs:string"/>
+    <xs:element name="country" type="xs:string"/>
     <xs:element name="creatingApplicationVersion" type="xs:string"/>
     <xs:element name="environmentDesignationExtension" type="xs:string"/>
     <xs:element name="environmentDesignationNote" type="xs:string"/>
@@ -800,6 +840,7 @@
     <xs:element name="formatVersion" type="xs:string"/>
     <xs:element name="hwOtherInformation" type="xs:string"/>
     <xs:element name="inhibitorKey" type="xs:string"/>
+    <xs:element name="latitude" type="xs:string"/>
     <xs:element name="licenseDocumentationIdentifierValue" type="xs:string"/>
     <xs:element name="licenseIdentifierValue" type="xs:string"/>
     <xs:element name="licenseNote" type="xs:string"/>
@@ -809,6 +850,7 @@
     <xs:element name="linkingEnvironmentIdentifierValue" type="xs:string"/>
     <xs:element name="linkingObjectIdentifierValue" type="xs:string"/>
     <xs:element name="linkingRightsStatementIdentifierValue" type="xs:string"/>
+    <xs:element name="longitude" type="xs:string"/>
     <xs:element name="messageDigest" type="xs:string"/>
     <xs:element name="objectIdentifierValue" type="xs:string"/>
     <xs:element name="otherRightsDocumentationIdentifierValue" type="xs:string"/>
@@ -820,6 +862,8 @@
     <xs:element name="signatureProperties" type="xs:string"/>
     <xs:element name="signatureValue" type="xs:string"/>
     <xs:element name="significantPropertiesValue" type="xs:string"/>
+    <xs:element name="state" type="xs:string"/>
+    <xs:element name="streetAddress" type="xs:string"/>
     <xs:element name="swVersion" type="xs:string"/>
     <xs:element name="swOtherInformation" type="xs:string"/>
 
@@ -830,6 +874,7 @@
     <xs:element name="agentIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="agentName" type="stringPlusAuthority"/>
     <xs:element name="agentType" type="stringPlusAuthority"/>
+    <xs:element name="buildingFunction" type="stringPlusAuthority"/>
     <xs:element name="contentLocationType" type="stringPlusAuthority"/>
     <xs:element name="copyrightDocumentationIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="copyrightDocumentationRole" type="stringPlusAuthority"/>
@@ -894,10 +939,13 @@
     <!--  
     ****** complex  type element declarations
  	 -->
+    <xs:element name="address" type="addressComplexType"/>
     <xs:element name="agentIdentifier" type="agentIdentifierComplexType"/>
     <xs:element name="buildingCharacteristics" type="buildingCharacteristicsComplexType"/>
+    <xs:element name="buildingLocation" type="buildingLocationComplexType"/>
     <xs:element name="contentLocation" type="contentLocationComplexType"/>
     <xs:element name="compositionLevel" type="compositionLevelComplexType"/>
+    <xs:element name="coordinates" type="coordinatesComplexType"/>
     <xs:element name="copyrightDocumentationIdentifier"
         type="copyrightDocumentationIdentifierComplexType"/>
     <xs:element name="copyrightInformation" type="copyrightInformationComplexType"/>
