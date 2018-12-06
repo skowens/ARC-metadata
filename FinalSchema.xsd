@@ -64,7 +64,7 @@
     <!--
 
     ***************  
-    The "types":  'file', 'representation', 'building', 'project', 'floor', 'room' and 'software'.  
+    The "types":  'file', 'representation', 'building', 'structuralUnit', 'room' and 'software'.  
 
     These are the values for the xsi:type attribute in an instance. 
     For an object of type file: <object xsi:type="file"> will mean that the complexType 
@@ -78,7 +78,9 @@
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
                     <xs:element ref="buildingCharacteristics" maxOccurs="unbounded"/>
+                    <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
+                <xs:attribute name="xmlID" type="xs:ID"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -92,38 +94,30 @@
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
                     <xs:element ref="projectCharacteristics" maxOccurs="unbounded"/>
+                    <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="linkingAgentIdentifier" maxOccurs="unbounded"/>
                 </xs:sequence>
+                <xs:attribute name="xmlID" type="xs:ID"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
     
 
     <!-- 
-    ******* floor
+    ******* structuralUnit
     -->
-    <xs:complexType name="floor">
+    <xs:complexType name="structuralUnit">
         <xs:complexContent>
             <xs:extension base="objectComplexType">
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
+                    <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
+                <xs:attribute name="xmlID" type="xs:ID"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    
-    <!-- 
-    ******* room
-    -->
-    <xs:complexType name="room">
-        <xs:complexContent>
-            <xs:extension base="objectComplexType">
-                <xs:sequence>
-                    <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    
+
     <!-- 
     ******* file
     -->
@@ -143,29 +137,6 @@
                         maxOccurs="unbounded"/>
                 </xs:sequence>
                 <xs:attribute name="xmlID" type="xs:ID"/>
-                <xs:attribute name="version" type="version3"/>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    
-    <!-- 
-    *********** representation
-  	 -->
-    <xs:complexType name="representation">
-        <xs:complexContent>
-            <xs:extension base="objectComplexType">
-                <xs:sequence>
-                    <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
-                    <xs:element ref="preservationLevel" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="significantProperties" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="originalName" minOccurs="0"/>
-                    <xs:element ref="storage" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0"
-                        maxOccurs="unbounded"/>
-                </xs:sequence>
-                <xs:attribute name="xmlID" type="xs:ID"/>
-                <xs:attribute name="version" type="version3"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -195,7 +166,6 @@
                         maxOccurs="unbounded"/>
                 </xs:sequence>
                 <xs:attribute name="xmlID" type="xs:ID"/>
-                <xs:attribute name="version" type="version3"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -211,7 +181,7 @@
             <xs:element ref="agentName" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agentType" minOccurs="0"/>
             <xs:element ref="agentVersion" minOccurs="0"/>
-            <xs:element ref="agentOrganization" minOccurs="0"/>
+            <xs:element ref="agentOrganization" minOccurs="0" maxOccurs="unbounded"/>
             <!--   -->
             <xs:element ref="agentNote" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="agentExtension" minOccurs="0" maxOccurs="unbounded"/>
