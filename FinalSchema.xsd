@@ -64,7 +64,7 @@
     <!--
 
     ***************  
-    The "types":  'file', 'representation', and 'software'.  
+    The "types":  'file', 'representation', 'building', 'project', 'floor', 'room' and 'software'.  
 
     These are the values for the xsi:type attribute in an instance. 
     For an object of type file: <object xsi:type="file"> will mean that the complexType 
@@ -250,7 +250,7 @@
             <xs:sequence>
                 <xs:element ref="streetAddress"/>
                 <xs:element ref="city"/>
-                <xs:element ref="state"/>
+                <xs:element ref="state" minOccurs="0"/>
                 <xs:element ref="country"/>
             </xs:sequence>
         </xs:complexType>
