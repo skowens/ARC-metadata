@@ -878,7 +878,6 @@
     <xs:element name="objectIdentifierValue" type="xs:string"/>
     <xs:element name="otherRightsDocumentationIdentifierValue" type="xs:string"/>
     <xs:element name="otherRightsNote" type="xs:string"/>
-    <xs:element name="projectType" type="xs:string"/>
     <xs:element name="projectDescription" type="xs:string"/>
     <xs:element name="preservationLevelRationale" type="xs:string"/>
     <xs:element name="relatedObjectIdentifierValue" type="xs:string"/>
@@ -933,6 +932,7 @@
     <xs:element name="otherRightsBasis" type="stringPlusAuthority"/>
     <xs:element name="otherRightsDocumentationRole" type="stringPlusAuthority"/>
     <xs:element name="otherRightsDocumentationIdentifierType" type="stringPlusAuthority"/>
+    <xs:element name="projectType" type="xs:stringPlusAuthority"/>
     <xs:element name="preservationLevelType" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelValue" type="stringPlusAuthority"/>
     <xs:element name="preservationLevelRole" type="stringPlusAuthority"/>
