@@ -10,7 +10,7 @@
    *                            November 27, 2018                               *
    *                                                                            *
    *                                                                            *
-   *   Creators:                                                                *
+   *   Creators: Alexandra Jaeckel, Sierra Owens, and Erika Weir                *
    *                                                                            *   
     ****************************************************************************
 
@@ -95,7 +95,7 @@
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
                     <xs:element ref="projectCharacteristics" maxOccurs="unbounded"/>
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="linkingAgentIdentifier" maxOccurs="unbounded"/>
+                    <xs:element ref="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
                 <xs:attribute name="xmlID" type="xs:ID"/>
             </xs:extension>
@@ -126,7 +126,6 @@
             <xs:extension base="objectComplexType">
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
-                    <xs:element ref="preservationLevel" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="significantProperties" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="fileCharacteristics" maxOccurs="unbounded"/>
                     <xs:element ref="originalName" minOccurs="0"/>
@@ -149,7 +148,6 @@
             <xs:extension base="objectComplexType">
                 <xs:sequence>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
-                    <xs:element ref="preservationLevel" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="significantProperties" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="originalName" minOccurs="0"/>
                     <!--
@@ -437,7 +435,7 @@
             <xs:element ref="size" minOccurs="0"/>
             <xs:element ref="format" maxOccurs="unbounded"/>
             <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="inhibitors" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="preservationStatus"/>
             <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
@@ -640,24 +638,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!--   
-    ****************preservationLevelComplexType
-     -->
-    <xs:complexType name="preservationLevelComplexType">
-        <xs:sequence>
-
-            <!--
-            **********************preservationLevelType new in 3.0  
-            -->
-            <xs:element ref="preservationLevelType" minOccurs="0"/>
-            <!--   -->
-            <xs:element ref="preservationLevelValue"/>
-            <xs:element ref="preservationLevelRole" minOccurs="0"/>
-            <xs:element ref="preservationLevelRationale" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="preservationLevelDateAssigned" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
-
     <!-- 
     ****************projectCharacteristicsComplexType
     -->
@@ -665,7 +645,6 @@
         <xs:sequence>
             <xs:element ref="projectType"/>
             <xs:element ref="projectDescription"/>
-            <xs:element ref="linkingAgentIdentifier"/>
             <xs:element ref="projectDate"/>
         </xs:sequence>
     </xs:complexType>
@@ -876,7 +855,7 @@
     <xs:element name="otherRightsDocumentationIdentifierValue" type="xs:string"/>
     <xs:element name="otherRightsNote" type="xs:string"/>
     <xs:element name="projectDescription" type="xs:string"/>
-    <xs:element name="preservationLevelRationale" type="xs:string"/>
+    <xs:element name="preservationStatus" type="xs:string"/>
     <xs:element name="relatedObjectIdentifierValue" type="xs:string"/>
     <xs:element name="rightsGrantedNote" type="xs:string"/>
     <xs:element name="rightsStatementIdentifierValue" type="xs:string"/>
@@ -931,9 +910,6 @@
     <xs:element name="otherRightsDocumentationRole" type="stringPlusAuthority"/>
     <xs:element name="otherRightsDocumentationIdentifierType" type="stringPlusAuthority"/>
     <xs:element name="projectType" type="stringPlusAuthority"/>
-    <xs:element name="preservationLevelType" type="stringPlusAuthority"/>
-    <xs:element name="preservationLevelValue" type="stringPlusAuthority"/>
-    <xs:element name="preservationLevelRole" type="stringPlusAuthority"/>
     <xs:element name="relatedEnvironmentPurpose" type="stringPlusAuthority"/>
     <xs:element name="relatedEnvironmentCharacteristic" type="stringPlusAuthority"/>
     <xs:element name="relatedObjectIdentifierType" type="stringPlusAuthority"/>
@@ -997,7 +973,6 @@
     <xs:element name="otherRightsDocumentationIdentifier"
         type="otherRightsDocumentationIdentifierComplexType"/>
     <xs:element name="otherRightsInformation" type="otherRightsInformationComplexType"/>
-    <xs:element name="preservationLevel" type="preservationLevelComplexType"/>
     <xs:element name="projectCharacteristics" type="projectCharacteristicsComplexType"/>
     <xs:element name="projectDate" type="projectDateComplexType"/>
     <xs:element name="relatedObjectIdentifier" type="relatedObjectIdentifierComplexType"/>
