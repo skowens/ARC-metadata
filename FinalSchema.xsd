@@ -644,7 +644,8 @@
     -->
     <xs:complexType name="projectCharacteristicsComplexType">
         <xs:sequence>
-            <xs:element ref="projectType"/>
+            <xs:element ref="client" maxOccurs="unbounded"/>
+            <xs:element ref="projectType" maxOccurs="unbounded"/>
             <xs:element ref="projectDescription"/>
             <xs:element ref="projectDate"/>
         </xs:sequence>
@@ -822,6 +823,7 @@
     <xs:element name="agentVersion" type="xs:string"/>
     <xs:element name="awardName" type="xs:string"/>
     <xs:element name="awardYear" type="xs:string"/>
+    <xs:element name="client" type="xs:string"/>
     <xs:element name="city" type="xs:string"/>
     <xs:element name="contentLocationValue" type="xs:string"/>
     <xs:element name="copyrightDocumentationIdentifierValue" type="xs:string"/>
