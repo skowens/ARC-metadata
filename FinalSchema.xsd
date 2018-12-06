@@ -254,6 +254,19 @@
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
 
+    <!--   
+    ****************buildingCharacteristicsComplexType
+     -->
+    <xs:complexType name="buildingCharacteristicsComplexType">
+        <xs:sequence>
+            
+            <xs:element ref="buildingCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
     <!--
     ****************compositionLevelComplexType
     -->
@@ -377,6 +390,21 @@
             <xs:element ref="environmentRegistryName"/>
             <xs:element ref="environmentRegistryKey"/>
             <xs:element ref="environmentRegistryRole" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--   
+    ****************fileCharacteristicsComplexType
+     -->
+    <xs:complexType name="fileCharacteristicsComplexType">
+        <xs:sequence>
+            <xs:element ref="compositionLevel" minOccurs="0"/>
+            <xs:element ref="fixity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="size" minOccurs="0"/>
+            <xs:element ref="format" maxOccurs="unbounded"/>
+            <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="inhibitors" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -531,20 +559,7 @@
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
 
-    <!--   
-    ****************fileCharacteristicsComplexType
-     -->
-    <xs:complexType name="fileCharacteristicsComplexType">
-        <xs:sequence>
-            <xs:element ref="compositionLevel" minOccurs="0"/>
-            <xs:element ref="fixity" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="size" minOccurs="0"/>
-            <xs:element ref="format" maxOccurs="unbounded"/>
-            <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="inhibitors" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
+
 
     <!--   	
     *******objectIdentifierComplexType
@@ -880,6 +895,7 @@
     ****** complex  type element declarations
  	 -->
     <xs:element name="agentIdentifier" type="agentIdentifierComplexType"/>
+    <xs:element name="buildingCharacteristics" type="buildingCharacteristicsComplexType"/>
     <xs:element name="contentLocation" type="contentLocationComplexType"/>
     <xs:element name="compositionLevel" type="compositionLevelComplexType"/>
     <xs:element name="copyrightDocumentationIdentifier"
@@ -889,6 +905,7 @@
     <xs:element name="environmentFunction" type="environmentFunctionComplexType"/>
     <xs:element name="environmentDesignation" type="environmentDesignationComplexType"/>
     <xs:element name="environmentRegistry" type="environmentRegistryComplexType"/>
+    <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="fixity" type="fixityComplexType"/>
     <xs:element name="format" type="formatComplexType"/>
     <xs:element name="formatDesignation" type="formatDesignationComplexType"/>
@@ -902,7 +919,6 @@
     <xs:element name="linkingObjectIdentifier" type="linkingObjectIdentifierComplexType"/>
     <xs:element name="linkingRightsStatementIdentifier"
         type="linkingRightsStatementIdentifierComplexType"/>
-    <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="objectIdentifier" type="objectIdentifierComplexType"/>
     <xs:element name="originalName" type="originalNameComplexType"/>
     <xs:element name="otherRightsDocumentationIdentifier"
@@ -945,10 +961,11 @@
     ****** extension  type  element declarations
  	 -->
     <xs:element name="agentExtension" type="extensionComplexType"/>
+    <xs:element name="buildingCharacteristicsExtension" type="extensionComplexType"/>
     <xs:element name="creatingApplicationExtension" type="extensionComplexType"/>
     <xs:element name="environmentExtension" type="extensionComplexType"/>
-    <xs:element name="keyInformation" type="extensionComplexType"/>
     <xs:element name="fileCharacteristicsExtension" type="extensionComplexType"/>
+    <xs:element name="keyInformation" type="extensionComplexType"/>
     <xs:element name="rightsExtension" type="extensionComplexType"/>
     <xs:element name="signatureInformationExtension" type="extensionComplexType"/>
     <xs:element name="significantPropertiesExtension" type="extensionComplexType"/>
