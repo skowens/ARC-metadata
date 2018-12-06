@@ -95,6 +95,33 @@
         </xs:complexContent>
     </xs:complexType>
     
+
+    <!-- 
+    ******* floor
+    -->
+    <xs:complexType name="floor">
+        <xs:complexContent>
+            <xs:extension base="objectComplexType">
+                <xs:sequence>
+                    <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <!-- 
+    ******* room
+    -->
+    <xs:complexType name="room">
+        <xs:complexContent>
+            <xs:extension base="objectComplexType">
+                <xs:sequence>
+                    <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
     <!-- 
     ******* file
     -->
