@@ -110,6 +110,7 @@
         <xs:complexContent>
             <xs:extension base="objectComplexType">
                 <xs:sequence>
+                    <xs:element ref="structuralUnitType"/>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
@@ -224,7 +225,7 @@
         </xs:complexType>
 
     <!--
-    ******* agentIdentifierComplexType
+    *******agentIdentifierComplexType
     -->
     <xs:complexType name="agentIdentifierComplexType">
         <xs:sequence>
@@ -235,7 +236,7 @@
     </xs:complexType>
     
     <!--
-    ******* agentOrganizationComplexType
+    *******agentOrganizationComplexType
     -->
     <xs:complexType name="agentOrganizationComplexType">
         <xs:sequence>
@@ -247,7 +248,7 @@
     </xs:complexType>
 
     <!--
-    ******* buildingAwardComplexType
+    *******buildingAwardComplexType
     -->
     <xs:complexType name="buildingAwardComplexType">
         <xs:sequence>
@@ -258,7 +259,7 @@
     </xs:complexType>
 
     <!--   
-    ****************buildingCharacteristicsComplexType
+    *******buildingCharacteristicsComplexType
      -->
     <xs:complexType name="buildingCharacteristicsComplexType">
         <xs:sequence>
@@ -271,7 +272,7 @@
     </xs:complexType>
 
     <!-- 
-    ****************buildingLocationComplexType
+    *******buildingLocationComplexType
     -->
     <xs:complexType name="buildingLocationComplexType">
         <xs:choice>
@@ -290,7 +291,7 @@
     </xs:complexType>
     
     <!--
-    ****************compositionLevelComplexType
+    *******compositionLevelComplexType
     -->
     <xs:complexType name="compositionLevelComplexType">
         <xs:simpleContent>
@@ -307,7 +308,7 @@
     </xs:complexType>
 
     <!-- 
-    ****************contentLocationComplexType
+    *******contentLocationComplexType
     -->
     <xs:complexType name="contentLocationComplexType">
         <xs:sequence>
@@ -318,7 +319,7 @@
     </xs:complexType>
     
     <!--
-    ******** coordinatesComplexType  
+    *******coordinatesComplexType  
     -->
     <xs:complexType name="coordinatesComplexType">
         <xs:sequence>
@@ -328,7 +329,7 @@
     </xs:complexType>
 
     <!--
-    ******** copyrightDocumentationIdentifierComplexType  
+    *******copyrightDocumentationIdentifierComplexType  
     -->
     <xs:complexType name="copyrightDocumentationIdentifierComplexType">
         <xs:sequence>
@@ -339,7 +340,7 @@
     </xs:complexType>
 
     <!-- 
-    ******** copyrightInformationComplexType
+    *******copyrightInformationComplexType
      -->
     <xs:complexType name="copyrightInformationComplexType">
         <xs:sequence>
@@ -353,7 +354,7 @@
     </xs:complexType>
 
     <!-- 
-    ****************creatingApplicationComplexType
+    *******creatingApplicationComplexType
     -->
     <xs:complexType name="creatingApplicationComplexType">
         <xs:choice>
@@ -392,7 +393,7 @@
     </xs:complexType>
 
     <!--
-       ****environmentFunctionComplexType
+    *******environmentFunctionComplexType
     -->
     <xs:complexType name="environmentFunctionComplexType">
         <xs:sequence>
@@ -402,7 +403,7 @@
     </xs:complexType>
 
     <!--
-       ****environmentDesignationComplexType
+    *******environmentDesignationComplexType
     -->
     <xs:complexType name="environmentDesignationComplexType">
         <xs:sequence>
@@ -415,7 +416,7 @@
     </xs:complexType>
 
     <!--
-       ****environmentRegistryComplexType
+    *******environmentRegistryComplexType
     -->
     <xs:complexType name="environmentRegistryComplexType">
         <xs:sequence>
@@ -426,7 +427,7 @@
     </xs:complexType>
 
     <!--   
-    ****************fileCharacteristicsComplexType
+    *******fileCharacteristicsComplexType
      -->
     <xs:complexType name="fileCharacteristicsComplexType">
         <xs:sequence>
@@ -495,7 +496,7 @@
     </xs:complexType>
 
     <!--   
-    ****************inhibitorsComplexType
+    *******inhibitorsComplexType
      -->
     <xs:complexType name="inhibitorsComplexType">
         <xs:sequence>
@@ -506,7 +507,7 @@
     </xs:complexType>
 
     <!-- 
-    ******* licenseDocumentationIdentifierComplexType     
+    *******licenseDocumentationIdentifierComplexType     
      -->
     <xs:complexType name="licenseDocumentationIdentifierComplexType">
         <xs:sequence>
@@ -517,7 +518,7 @@
     </xs:complexType>
 
     <!--
-    ******* licenseInformationComplexType
+    *******licenseInformationComplexType
                                    See comment for "creatingApplicationComplexType"
     -->
     <xs:complexType name="licenseInformationComplexType">
@@ -542,7 +543,7 @@
     </xs:complexType>
 
     <!-- 
-    ******* linkingAgentIdentifierComplexType
+    *******linkingAgentIdentifierComplexType
      -->
     <xs:complexType name="linkingAgentIdentifierComplexType">
         <xs:sequence>
@@ -555,7 +556,7 @@
     </xs:complexType>
 
     <!--
-    ****************"linkingEnvironmentIdentifierComplexType
+    *******linkingEnvironmentIdentifierComplexType
     -->
     <xs:complexType name="linkingEnvironmentIdentifierComplexType">
         <xs:sequence>
@@ -580,7 +581,7 @@
     </xs:complexType>
 
     <!--
-    ****************linkingRightsStatementIdentifierComplexType
+    *******linkingRightsStatementIdentifierComplexType
     -->
     <xs:complexType name="linkingRightsStatementIdentifierComplexType">
         <xs:sequence>
@@ -605,7 +606,7 @@
     </xs:complexType>
 
     <!--   
-    ****************originalNameComplexType
+    *******originalNameComplexType
      -->
     <xs:complexType name="originalNameComplexType">
         <xs:simpleContent>
@@ -616,7 +617,7 @@
     </xs:complexType>
 
     <!--
-    ****************otherRightsDocumentationIdentifierComplexType     
+    *******otherRightsDocumentationIdentifierComplexType     
     -->
     <xs:complexType name="otherRightsDocumentationIdentifierComplexType">
         <xs:sequence>
@@ -627,7 +628,7 @@
     </xs:complexType>
 
     <!--   
-        ****************otherRightsInformationComplexType     
+    *******otherRightsInformationComplexType     
      -->
     <xs:complexType name="otherRightsInformationComplexType">
         <xs:sequence>
@@ -639,7 +640,7 @@
     </xs:complexType>
 
     <!-- 
-    ****************projectCharacteristicsComplexType
+    *******projectCharacteristicsComplexType
     -->
     <xs:complexType name="projectCharacteristicsComplexType">
         <xs:sequence>
@@ -650,7 +651,7 @@
     </xs:complexType>
     
     <!-- 
-    ****************projectDateComplexType
+    *******projectDateComplexType
     -->
     <xs:complexType name="projectDateComplexType">
         <xs:sequence>
@@ -660,7 +661,7 @@
     </xs:complexType>
 
     <!--
-    ****************relatedObjectIdentifierComplexType
+    *******relatedObjectIdentifierComplexType
     -->
     <xs:complexType name="relatedObjectIdentifierComplexType">
         <xs:sequence>
@@ -673,7 +674,7 @@
     </xs:complexType>
 
     <!--   
-    ****************relationshipComplexType
+    *******relationshipComplexType
      -->
     <xs:complexType name="relationshipComplexType">
         <xs:sequence>
@@ -685,7 +686,7 @@
         </xs:sequence>
     </xs:complexType>
     <!-- 
-    ******** rightsGrantedComplexType
+    ********rightsGrantedComplexType
      -->
     <xs:complexType name="rightsGrantedComplexType">
         <xs:sequence>
@@ -700,7 +701,7 @@
     </xs:complexType>
 
     <!--  	
-    ******* rightsStatementComplexType
+    *******rightsStatementComplexType
      -->
     <xs:complexType name="rightsStatementComplexType">
         <xs:sequence>
@@ -727,7 +728,7 @@
     </xs:complexType>
 
     <!--   
-    ****************signatureComplexType
+    *******signatureComplexType
     -->
     <xs:complexType name="signatureComplexType">
         <xs:sequence>
@@ -742,8 +743,8 @@
     </xs:complexType>
 
     <!--
-    ****************signatureInformationComplexType
-                                   See comment for "creatingApplicationComplexType"
+    *******signatureInformationComplexType
+                    See comment for "creatingApplicationComplexType"
     -->
     <xs:complexType name="signatureInformationComplexType">
         <xs:choice>
@@ -759,8 +760,8 @@
     </xs:complexType>
 
     <!--
-    ****************significantPropertiesComplexType
-                                   See comment for "creatingApplicationComplexType"
+    *******significantPropertiesComplexType
+                    See comment for "creatingApplicationComplexType"
     -->
     <xs:complexType name="significantPropertiesComplexType">
         <xs:choice>
@@ -783,7 +784,7 @@
     </xs:complexType>
 
     <!--   
-    ****************startAndEndDateComplexType     
+    *******startAndEndDateComplexType     
      -->
     <xs:complexType name="startAndEndDateComplexType">
         <xs:sequence>
@@ -795,8 +796,8 @@
 
 
     <!--
-    ****************storageComplexType
-                                   See comment for "creatingApplicationComplexType"
+    *******storageComplexType
+                     See comment for "creatingApplicationComplexType"
     -->
     <xs:complexType name="storageComplexType">
         <xs:choice>
@@ -864,6 +865,7 @@
     <xs:element name="significantPropertiesValue" type="xs:string"/>
     <xs:element name="state" type="xs:string"/>
     <xs:element name="streetAddress" type="xs:string"/>
+    <xs:element name="structuralUnitType" type="xs:string"/>
     <xs:element name="swVersion" type="xs:string"/>
     <xs:element name="swOtherInformation" type="xs:string"/>
     <xs:element name="title" type="xs:string"/>
