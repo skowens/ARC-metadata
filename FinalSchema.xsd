@@ -110,8 +110,8 @@
         <xs:complexContent>
             <xs:extension base="objectComplexType">
                 <xs:sequence>
-                    <xs:element ref="structuralUnitType"/>
                     <xs:element ref="objectIdentifier" maxOccurs="unbounded"/>
+                    <xs:element ref="structuralUnitType"/>
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
                 <xs:attribute name="xmlID" type="xs:ID"/>
