@@ -424,6 +424,7 @@
             <xs:element ref="fixity" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="size" minOccurs="0"/>
             <xs:element ref="format" maxOccurs="unbounded"/>
+            <xs:element ref="contentDescription" minOccurs="0" maxOccurs="unbounded" />
             <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="preservationStatus"/>
             <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
@@ -816,6 +817,7 @@
     <xs:element name="city" type="xs:string"/>
     <xs:element name="contentLocationValue" type="xs:string"/>
     <xs:element name="copyrightDocumentationIdentifierValue" type="xs:string"/>
+    <xs:element name="contentDescription" type="xs:string"/>
     <xs:element name="copyrightNote" type="xs:string"/>
     <xs:element name="country" type="xs:string"/>
     <xs:element name="creatingApplicationVersion" type="xs:string"/>
