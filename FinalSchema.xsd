@@ -220,6 +220,7 @@
                 <xs:element ref="streetAddress"/>
                 <xs:element ref="city"/>
                 <xs:element ref="state" minOccurs="0"/>
+                <xs:element ref="zipCode" minOccurs="0"/>
                 <xs:element ref="country"/>
             </xs:sequence>
         </xs:complexType>
@@ -871,6 +872,7 @@
     <xs:element name="swVersion" type="xs:string"/>
     <xs:element name="swOtherInformation" type="xs:string"/>
     <xs:element name="title" type="xs:string"/>
+    <xs:element name="zipCode" type="xs:string"/>
 
     <!--
     ****** stringPlusAuthority type element declarations
