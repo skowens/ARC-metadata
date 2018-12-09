@@ -157,7 +157,6 @@
                     -->
                     <xs:element ref="environmentFunction" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="environmentDesignation" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="environmentRegistry" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="environmentExtension" minOccurs="0" maxOccurs="unbounded"/>
                     <!--   -->
                     <xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded"/>
@@ -413,17 +412,6 @@
             <xs:element ref="environmentOrigin" minOccurs="0"/>
             <xs:element ref="environmentDesignationNote" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="environmentDesignationExtension" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!--
-    *******environmentRegistryComplexType
-    -->
-    <xs:complexType name="environmentRegistryComplexType">
-        <xs:sequence>
-            <xs:element ref="environmentRegistryName"/>
-            <xs:element ref="environmentRegistryKey"/>
-            <xs:element ref="environmentRegistryRole" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -836,8 +824,6 @@
     <xs:element name="environmentFunctionLevel" type="xs:string"/>
     <xs:element name="environmentNote" type="xs:string"/>
     <xs:element name="environmentOrigin" type="xs:string"/>
-    <xs:element name="environmentRegistryKey" type="xs:string"/>
-    <xs:element name="environmentRegistryName" type="xs:string"/>
     <xs:element name="environmentVersion" type="xs:string"/>
     <xs:element name="formatNote" type="xs:string"/>
     <xs:element name="formatVersion" type="xs:string"/>
@@ -890,7 +876,6 @@
     <xs:element name="environmentCharacteristic" type="stringPlusAuthority"/>
     <xs:element name="environmentFunctionType" type="stringPlusAuthority"/>
     <xs:element name="environmentName" type="stringPlusAuthority"/>
-    <xs:element name="environmentRegistryRole" type="stringPlusAuthority"/>
     <xs:element name="environmentPurpose" type="stringPlusAuthority"/>
     <xs:element name="formatName" type="stringPlusAuthority"/>
     <xs:element name="formatRegistryName" type="stringPlusAuthority"/>
@@ -959,7 +944,6 @@
     <xs:element name="creatingApplication" type="creatingApplicationComplexType"/>
     <xs:element name="environmentFunction" type="environmentFunctionComplexType"/>
     <xs:element name="environmentDesignation" type="environmentDesignationComplexType"/>
-    <xs:element name="environmentRegistry" type="environmentRegistryComplexType"/>
     <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="fixity" type="fixityComplexType"/>
     <xs:element name="format" type="formatComplexType"/>
