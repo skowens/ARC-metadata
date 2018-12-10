@@ -15,7 +15,7 @@
     ****************************************************************************
 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/skowens/ARC-metadata" targetNamespace="https://github.com/skowens/ARC-metadata" elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <!--
    		
