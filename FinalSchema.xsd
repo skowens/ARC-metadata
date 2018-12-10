@@ -464,17 +464,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- 	  
-    *******formatRegistryComplexType
-   -->
-    <xs:complexType name="formatRegistryComplexType">
-        <xs:sequence>
-            <xs:element ref="formatRegistryName"/>
-            <xs:element ref="formatRegistryKey"/>
-            <xs:element ref="formatRegistryRole" minOccurs="0"/>
-        </xs:sequence>
-        <xs:attribute name="simpleLink" type="xs:anyURI"/>
-    </xs:complexType>
 
     <!--   
     *******inhibitorsComplexType
@@ -941,7 +930,6 @@
     <xs:element name="fixity" type="fixityComplexType"/>
     <xs:element name="format" type="formatComplexType"/>
     <xs:element name="formatDesignation" type="formatDesignationComplexType"/>
-    <xs:element name="formatRegistry" type="formatRegistryComplexType"/>
     <xs:element name="inhibitors" type="inhibitorsComplexType"/>
     <xs:element name="licenseDocumentationIdentifier"
         type="licenseDocumentationIdentifierComplexType"/>
