@@ -393,16 +393,6 @@
     </xs:complexType>
 
     <!--
-    *******environmentFunctionComplexType
-    -->
-    <xs:complexType name="environmentFunctionComplexType">
-        <xs:sequence>
-            <xs:element ref="environmentFunctionType"/>
-            <xs:element ref="environmentFunctionLevel"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <!--
     *******environmentDesignationComplexType
     -->
     <xs:complexType name="environmentDesignationComplexType">
@@ -913,7 +903,6 @@
         type="copyrightDocumentationIdentifierComplexType"/>
     <xs:element name="copyrightInformation" type="copyrightInformationComplexType"/>
     <xs:element name="creatingApplication" type="creatingApplicationComplexType"/>
-    <xs:element name="environmentFunction" type="environmentFunctionComplexType"/>
     <xs:element name="environmentDesignation" type="environmentDesignationComplexType"/>
     <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="fixity" type="fixityComplexType"/>
