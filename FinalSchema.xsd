@@ -447,18 +447,9 @@
      -->
     <xs:complexType name="formatComplexType">
         <xs:sequence>
-            <xs:choice>
-
-                <!--
-                one or both of formatDesignation and/or formatRegistry required;
-				    followed optionally by formatNote 
-                -->
                 <xs:sequence>
                     <xs:element ref="formatDesignation"/>
-                    <xs:element ref="formatRegistry" minOccurs="0"/>
                 </xs:sequence>
-                <xs:element ref="formatRegistry"/>
-            </xs:choice>
             <xs:element ref="formatNote" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
