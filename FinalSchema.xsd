@@ -101,7 +101,7 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    
+
 
     <!-- 
     ******* structuralUnit
@@ -167,7 +167,7 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    
+
     <!--
     ************************************************************************************************************
     ************************************************************************************************************ 	                  
@@ -185,13 +185,13 @@
             <xs:element ref="agentExtension" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingRightsStatementIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="linkingEnvironmentIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element ref="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded"/>
             <!--   -->
         </xs:sequence>
         <xs:attribute name="xmlID" type="xs:ID"/>
         <xs:attribute name="version" type="version3"/>
     </xs:complexType>
-    
+
     <!--  	
     ******************* rightsComplexType
     -->
@@ -214,15 +214,15 @@
     *********************************************************************************************
     ********address  
     -->
-        <xs:complexType name="addressComplexType">
-            <xs:sequence>
-                <xs:element ref="streetAddress"/>
-                <xs:element ref="city"/>
-                <xs:element ref="state" minOccurs="0"/>
-                <xs:element ref="zipCode" minOccurs="0"/>
-                <xs:element ref="country"/>
-            </xs:sequence>
-        </xs:complexType>
+    <xs:complexType name="addressComplexType">
+        <xs:sequence>
+            <xs:element ref="streetAddress"/>
+            <xs:element ref="city"/>
+            <xs:element ref="state" minOccurs="0"/>
+            <xs:element ref="zipCode" minOccurs="0"/>
+            <xs:element ref="country"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <!--
     *******agentIdentifierComplexType
@@ -234,7 +234,7 @@
         </xs:sequence>
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
-    
+
     <!--
     *******agentOrganizationComplexType
     -->
@@ -282,14 +282,14 @@
             </xs:sequence>
             <xs:sequence>
                 <xs:element ref="address"/>
-             </xs:sequence>
+            </xs:sequence>
         </xs:choice>
-        
+
         <!--
         See notes for creatingApplicationComplexType
         -->
     </xs:complexType>
-    
+
     <!--
     *******compositionLevelComplexType
     -->
@@ -317,7 +317,7 @@
         </xs:sequence>
         <xs:attribute name="simpleLink" type="xs:anyURI"/>
     </xs:complexType>
-    
+
     <!--
     *******coordinatesComplexType  
     -->
@@ -424,7 +424,7 @@
             <xs:element ref="fixity" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="size" minOccurs="0"/>
             <xs:element ref="format" maxOccurs="unbounded"/>
-            <xs:element ref="contentDescription" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element ref="contentDescription" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="creatingApplication" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="preservationStatus"/>
             <xs:element ref="fileCharacteristicsExtension" minOccurs="0" maxOccurs="unbounded"/>
@@ -447,22 +447,12 @@
      -->
     <xs:complexType name="formatComplexType">
         <xs:sequence>
-                <xs:sequence>
-                    <xs:element ref="formatDesignation"/>
-                </xs:sequence>
+            <xs:element ref="formatName"/>
+            <xs:element ref="formatVersion" minOccurs="0"/>
             <xs:element ref="formatNote" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
-    <!--   
-    *******formatDesignationComplexType
-     -->
-    <xs:complexType name="formatDesignationComplexType">
-        <xs:sequence>
-            <xs:element ref="formatName"/>
-            <xs:element ref="formatVersion" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
 
 
     <!--   
@@ -620,7 +610,7 @@
             <xs:element ref="projectDate"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- 
     *******projectDateComplexType
     -->
@@ -929,7 +919,6 @@
     <xs:element name="fileCharacteristics" type="fileCharacteristicsComplexType"/>
     <xs:element name="fixity" type="fixityComplexType"/>
     <xs:element name="format" type="formatComplexType"/>
-    <xs:element name="formatDesignation" type="formatDesignationComplexType"/>
     <xs:element name="inhibitors" type="inhibitorsComplexType"/>
     <xs:element name="licenseDocumentationIdentifier"
         type="licenseDocumentationIdentifierComplexType"/>
