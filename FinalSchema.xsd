@@ -155,7 +155,6 @@
                         The following four elements should be used only for an intellectualEntity
                         of type environment. (However this is not validated.) 
                     -->
-                    <xs:element ref="environmentFunction" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="environmentDesignation" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="environmentExtension" minOccurs="0" maxOccurs="unbounded"/>
                     <!--   -->
